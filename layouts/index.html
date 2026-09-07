@@ -128,9 +128,27 @@
       <div class="home-research-stories">
         {{ range site.Data.home.priorities }}
           <article class="home-research-story is-{{ .layout }} is-{{ .accent }}">
-            <div class="home-research-visual">
-              <img src="{{ .image | relURL }}" alt="{{ .image_alt }}" loading="lazy">
-            </div>
+            {{ if .table }}
+              <div class="home-research-visual home-research-table-wrap">
+                <table class="home-research-table">
+                  <caption class="visually-hidden">{{ .title }}: what we release at each layer</caption>
+                  <tbody>
+                    {{ range .table }}
+                      <tr>
+                        <th scope="row">{{ .layer }}<span>{{ .descriptor }}</span></th>
+                        <td>
+                          {{ range $i, $item := .items }}{{ if $i }}<span class="sep" aria-hidden="true">·</span>{{ end }}<a href="{{ $item.url }}" target="_blank" rel="noopener noreferrer">{{ $item.label }}</a>{{ end }}
+                        </td>
+                      </tr>
+                    {{ end }}
+                  </tbody>
+                </table>
+              </div>
+            {{ else }}
+              <div class="home-research-visual">
+                <img src="{{ .image | relURL }}" alt="{{ .image_alt }}" loading="lazy">
+              </div>
+            {{ end }}
             <div class="home-research-copy">
               <h3>{{ .title }}</h3>
               <div class="home-research-text">{{ .text | markdownify }}</div>

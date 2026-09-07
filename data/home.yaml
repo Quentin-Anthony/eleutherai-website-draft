@@ -14,8 +14,31 @@ priorities:
     title: "Open Models and Tools"
     layout: "light"
     accent: "blue"
-    image: "images/research/homepage/open-models.svg"
-    image_alt: "Three open layers: datasets, training and evaluation code, and models released with checkpoints and data order"
+    # Rendered as a live table in place of an image. Each row: layer, descriptor, linked items.
+    table:
+      - layer: "Data"
+        descriptor: "Openly licensed"
+        items:
+          - label: "The Pile"
+            url: "https://pile.eleuther.ai/"
+          - label: "The Common Pile"
+            url: "https://huggingface.co/common-pile"
+      - layer: "Code"
+        descriptor: "Open source"
+        items:
+          - label: "GPT-NeoX"
+            url: "https://github.com/EleutherAI/gpt-neox"
+          - label: "lm-evaluation-harness"
+            url: "https://github.com/EleutherAI/lm-evaluation-harness"
+      - layer: "Models"
+        descriptor: "Public, with checkpoints"
+        items:
+          - label: "Pythia"
+            url: "https://github.com/EleutherAI/pythia"
+          - label: "GPT-NeoX-20B"
+            url: "https://huggingface.co/EleutherAI/gpt-neox-20b"
+          - label: "Comma"
+            url: "https://huggingface.co/common-pile"
     text: |-
       Open research on large models requires more than released weights. It requires open data to train on, open code to train and evaluate with, and open models whose full development is public.
 
@@ -23,7 +46,7 @@ priorities:
     links:
       - label: "Datasets"
         url: "https://huggingface.co/EleutherAI/datasets"
-      - label: "Infrastructure"
+      - label: "Code"
         url: "https://github.com/EleutherAI"
       - label: "Models"
         url: "https://huggingface.co/EleutherAI/models"
