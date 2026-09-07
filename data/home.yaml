@@ -12,6 +12,7 @@ metrics:
 priorities:
   - key: "open-models-and-tools"
     title: "Open Models and Tools"
+    url: "/research/open-models-and-data/"
     layout: "light"
     accent: "blue"
     # Rendered as a live table in place of an image. Each row: layer, descriptor, linked items.
@@ -52,6 +53,7 @@ priorities:
         url: "https://huggingface.co/EleutherAI/models"
   - key: "interpretability-over-time"
     title: "Interpretability Over Time"
+    url: "/research/interpretability/"
     layout: "lead"
     accent: "green"
     image: "images/research/homepage/interpretability-over-time.svg"
@@ -63,10 +65,11 @@ priorities:
     links:
       - label: "Pythia"
         url: "https://arxiv.org/abs/2304.01373"
-      - label: "Training Dynamics Agenda"
+      - label: "Don't Just fix it in Post"
         url: "https://arxiv.org/abs/2606.06533"
   - key: "open-weight-safety"
     title: "Open-Weight Safety"
+    url: "/research/open-weight-safety/"
     layout: "safety"
     accent: "violet"
     images:
@@ -83,6 +86,7 @@ priorities:
         url: "https://arxiv.org/abs/2406.16746"
   - key: "evaluation"
     title: "Evaluation"
+    url: "/research/evaluation/"
     layout: "compact"
     accent: "gold"
     image: "images/research/homepage/evaluation.svg"

@@ -816,6 +816,17 @@ h2 {
   line-height: 1.08;
 }
 
+.home-research-copy h3 a {
+  color: var(--story-accent);
+  text-decoration: none;
+}
+
+.home-research-copy h3 a:hover,
+.home-research-copy h3 a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
 .home-research-text {
   margin-top: 18px;
   color: var(--body);

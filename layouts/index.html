@@ -156,7 +156,7 @@
               </div>
             {{ end }}
             <div class="home-research-copy">
-              <h3>{{ .title }}</h3>
+              <h3><a href="{{ .url | relURL }}">{{ .title }} <span aria-hidden="true">&rarr;</span></a></h3>
               <div class="home-research-text">{{ .text | markdownify }}</div>
               <div class="home-research-links">
                 {{ range .links }}
