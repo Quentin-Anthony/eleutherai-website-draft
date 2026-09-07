@@ -114,8 +114,8 @@ def evaluation_figure():
 
     # Annotations sit in the empty regions; move freely.
     ax.text(0.50, 0.74, "Saturated: No Longer\nSeparates Models", color=TEXT, fontsize=19,
-            ha="left", va="top", linespacing=1.3)
-    ax.text(0.40, 0.20, "Still Informative", color=BLUE, fontsize=19, ha="left", va="bottom")
+            ha="left", va="top", linespacing=1.3,
+            bbox=dict(boxstyle="round,pad=0.5", facecolor=BG, edgecolor=GOLD, lw=1.8))
 
     # Legend above the axes, out of the way of every curve.
     ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.02), ncol=2, frameon=False, fontsize=18,
@@ -165,14 +165,23 @@ def open_weight_safety_figure():
 
 # Deep Ignorance, Figure 1, redrawn in the site palette.
 # Colors follow the schematic above: coral = unfiltered (hazard retained), violet = filtered.
-# !! The numbers below are read off the published figure by eye. Replace them with the
-# !! values from the paper's results before shipping. Shapes and axes are the paper's.
-DI_GENERAL = {"Baseline": 0.545, "Weak Filter": 0.55, "Strong Filter": 0.55}          # avg on 4 benchmarks
+#
+# Sources (github.com/EleutherAI/deep-ignorance, HF_README.md results table):
+#   Baseline      = deep-ignorance-unfiltered
+#   Weak Filter   = deep-ignorance-e2e-weak-filter
+#   Strong Filter = deep-ignorance-e2e-strong-filter
+# General-capability bars and the 0-token starting point of each attack curve are the
+# exact values from that table. The attack trajectories (accuracy vs. adversarial
+# fine-tuning tokens) are logged to wandb and are not in the repo, so the shape of each
+# curve beyond its first point is approximate. Replace DI_BIOTHREAT with the real
+# per-checkpoint numbers when you have them.
+DI_GENERAL = {"Baseline": 0.5605, "Weak Filter": 0.5737, "Strong Filter": 0.5553}
 DI_TOKENS = np.array([0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300])     # millions
-DI_BIOTHREAT = {                                                                        # WMDP-Bio cloze
-    "Baseline":      np.array([0.355, 0.375, 0.39, 0.40, 0.41, 0.42, 0.43, 0.435, 0.44, 0.445, 0.45, 0.45, 0.455]),
-    "Weak Filter":   np.array([0.31, 0.33, 0.345, 0.36, 0.37, 0.38, 0.385, 0.39, 0.395, 0.40, 0.405, 0.41, 0.41]),
-    "Strong Filter": np.array([0.285, 0.30, 0.31, 0.32, 0.33, 0.34, 0.345, 0.35, 0.355, 0.36, 0.365, 0.37, 0.37]),
+DI_START = {"Baseline": 0.3634, "Weak Filter": 0.2574, "Strong Filter": 0.2444}       # exact (0 tokens)
+DI_END = {"Baseline": 0.455, "Weak Filter": 0.40, "Strong Filter": 0.37}              # approximate
+DI_BIOTHREAT = {
+    name: DI_START[name] + (DI_END[name] - DI_START[name]) * (1 - np.exp(-DI_TOKENS / 110))
+    for name in DI_GENERAL
 }
 DI_RANDOM = 0.25
 DI_COLORS = {"Baseline": CORAL, "Weak Filter": GOLD, "Strong Filter": VIOLET}
@@ -193,6 +202,7 @@ def deep_ignorance_figure():
     left.set_xticks([])
     left.set_ylim(0, 0.65)
     left.set_yticks([0, 0.2, 0.4, 0.6])
+    left.set_yticklabels(["0%", "20%", "40%", "60%"])
     left.set_title("General Capability  ↑\n(Avg. on 4 Benchmarks)", fontsize=16, color=TEXT, pad=14)
 
     for n in names:
@@ -200,10 +210,11 @@ def deep_ignorance_figure():
     right.axhline(DI_RANDOM, color=MUTED, lw=1.8, ls=(0, (6, 6)))
     right.text(DI_TOKENS[-1], DI_RANDOM - 0.008, "Random", color=MUTED, fontsize=14, ha="right", va="top")
     right.set_xlim(0, 300)
-    right.set_ylim(0.23, 0.5)
+    right.set_ylim(0.22, 0.5)
     right.set_xticks([0, 100, 200, 300])
     right.set_xticklabels(["0", "100M", "200M", "300M"])
     right.set_yticks([0.25, 0.3, 0.35, 0.4, 0.45])
+    right.set_yticklabels(["25%", "30%", "35%", "40%", "45%"])
     right.set_xlabel("Adversarial Fine-Tuning Tokens", fontsize=16, labelpad=10)
     right.set_title("Biothreat Proxy Capability  ↓\n(WMDP-Bio, Cloze Eval)", fontsize=16, color=TEXT, pad=14)
 
