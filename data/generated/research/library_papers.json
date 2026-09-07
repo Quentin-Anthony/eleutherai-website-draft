@@ -1,5 +1,127 @@
 [
   {
+    "title": "No Single Tokenizer Feature Reliably Predicts Downstream Language Model Performance",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP Findings",
+    "family": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Training Models"
+    ],
+    "lead_org": "",
+    "contact": "",
+    "artifact_type": "Paper",
+    "authors": "Lopardo, Frentzen Salim, Srivastava, Jiang, Sharma, and Arnett",
+    "author_search": "Lopardo, Frentzen Salim, Srivastava, Jiang, Sharma, and Arnett Lopardo, Frentzen Salim, Srivastava, Jiang, Sharma, and Arnett Frentzen Salim, Srivastava, Jiang, Sharma, and Arnett Lopardo",
+    "marker": "",
+    "superlatives": []
+  },
+  {
+    "title": "Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations?",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP",
+    "family": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Model Internals"
+    ],
+    "lead_org": "",
+    "contact": "",
+    "artifact_type": "Paper",
+    "authors": "Zhou, Salhan, Arnett, and Korhonen",
+    "author_search": "Zhou, Salhan, Arnett, and Korhonen Zhou, Salhan, Arnett, and Korhonen Salhan, Arnett, and Korhonen Zhou",
+    "marker": "",
+    "superlatives": []
+  },
+  {
+    "title": "BuzzASR: A Swarm of 100+ Monolingual Speech Recognition Models",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP Findings",
+    "family": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Multimodal",
+      "Training Models"
+    ],
+    "lead_org": "",
+    "contact": "",
+    "artifact_type": "Paper",
+    "authors": "Singh, Yadavalli, Arnett, and Warstadt",
+    "author_search": "Singh, Yadavalli, Arnett, and Warstadt Singh, Yadavalli, Arnett, and Warstadt Yadavalli, Arnett, and Warstadt Singh",
+    "marker": "",
+    "superlatives": []
+  },
+  {
+    "title": "Bergson: An Open Source Library for Data Attribution",
+    "url": "https://arxiv.org/abs/2606.11660",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP System Demonstrations",
+    "family": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Data",
+      "Model Internals"
+    ],
+    "lead_org": "",
+    "contact": "",
+    "artifact_type": "Paper",
+    "authors": "Quirke, Jaburi, Johnston, Li, Paulo, Martres, Gupta, Biderman, and Belrose",
+    "author_search": "Quirke, Jaburi, Johnston, Li, Paulo, Martres, Gupta, Biderman, and Belrose Lucia Quirke Louis Jaburi David Johnston William Z. Li Gonçalo Paulo Guillaume Martres Girish Gupta Stella Biderman Nora Belrose",
+    "marker": "",
+    "superlatives": []
+  },
+  {
+    "title": "Beetle: Structured Exposure Pretraining in Bilingual Language Models for Modelling L2 Language Processing",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP",
+    "family": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Training Models"
+    ],
+    "lead_org": "",
+    "contact": "",
+    "artifact_type": "Paper",
+    "authors": "Salhan, Arnett, Michaelov, and Buttery",
+    "author_search": "Salhan, Arnett, Michaelov, and Buttery Salhan, Arnett, Michaelov, and Buttery Arnett, Michaelov, and Buttery Salhan",
+    "marker": "",
+    "superlatives": []
+  },
+  {
+    "title": "Apples to Apples? Towards Comparable Crosslingual Language Model Evaluation",
+    "url": "https://arxiv.org/abs/2608.25089",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP",
+    "family": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Evaluation"
+    ],
+    "lead_org": "",
+    "contact": "",
+    "artifact_type": "Paper",
+    "authors": "Yang, Wilcox, and Arnett",
+    "author_search": "Yang, Wilcox, and Arnett Yang, Wilcox, and Arnett Wilcox, and Arnett Yang",
+    "marker": "",
+    "superlatives": []
+  },
+  {
     "title": "Where Does Social Reasoning Come From? Capability Provenance in Language Models",
     "url": "https://arxiv.org/abs/2606.19625",
     "date": "2026",
@@ -288,27 +410,6 @@
     "artifact_type": "Paper",
     "authors": "Cesista, Crowson, Simal, and Biderman",
     "author_search": "Cesista, Crowson, Simal, and Biderman Franz Louis Cesista Katherine Crowson Cédric Simal Stella Biderman",
-    "marker": "",
-    "superlatives": []
-  },
-  {
-    "title": "Bergson: An Open Source Library for Data Attribution",
-    "url": "https://arxiv.org/abs/2606.11660",
-    "date": "2026",
-    "date_sort": "2026-06-10",
-    "venue": "EMNLP System Demonstrations",
-    "family": "EMNLP",
-    "kind": "conference",
-    "status": "Accepted",
-    "areas": [
-      "Data",
-      "Model Internals"
-    ],
-    "lead_org": "",
-    "contact": "",
-    "artifact_type": "Paper",
-    "authors": "Quirke, Jaburi, Johnston, Li, Paulo, Martres, Gupta, Biderman, and Belrose",
-    "author_search": "Quirke, Jaburi, Johnston, Li, Paulo, Martres, Gupta, Biderman, and Belrose Lucia Quirke Louis Jaburi David Johnston William Z. Li Gonçalo Paulo Guillaume Martres Girish Gupta Stella Biderman Nora Belrose",
     "marker": "",
     "superlatives": []
   },
@@ -669,7 +770,7 @@
   },
   {
     "title": "Explaining and Mitigating Cross-Linguistic Tokenizer Inequalities",
-    "url": "https://arxiv.org/pdf/2406.16829",
+    "url": "https://arxiv.org/abs/2406.16829",
     "date": "2025",
     "date_sort": "2025-12-02",
     "venue": "NeurIPS",
@@ -703,8 +804,8 @@
     "lead_org": "",
     "contact": "",
     "artifact_type": "Paper",
-    "authors": "Imran, and Chatterjee",
-    "author_search": "Imran, and Chatterjee Ayesha Imran Soham Chatterjee",
+    "authors": "Imran and Chatterjee",
+    "author_search": "Imran and Chatterjee Ayesha Imran Soham Chatterjee",
     "marker": "",
     "superlatives": []
   },
@@ -1356,7 +1457,7 @@
   },
   {
     "title": "Slowing Learning by Erasing Simple Features",
-    "url": "https://arxiv.org/pdf/2502.02820",
+    "url": "https://arxiv.org/abs/2502.02820",
     "date": "2025",
     "date_sort": "2025-02-05",
     "venue": "arXiv",
@@ -2149,7 +2250,7 @@
   },
   {
     "title": "GoldFinch: High Performance RWKV/Transformer Hybrid with Linear Pre-Fill and Extreme KV-Cache Compression",
-    "url": "https://arxiv.org/pdf/2407.12077",
+    "url": "https://arxiv.org/abs/2407.12077",
     "date": "2024",
     "date_sort": "2024-07-16",
     "venue": "arXiv",
@@ -3807,7 +3908,7 @@
   },
   {
     "title": "The Hard Problem of Aligning AI to Human Values",
-    "url": "https://www.stellabiderman.ai/research-interests",
+    "url": "https://arxiv.org/abs/2105.09060",
     "date": "2021",
     "date_sort": "2021-04-27",
     "venue": "The State of AI Ethics Report, Volume 4",

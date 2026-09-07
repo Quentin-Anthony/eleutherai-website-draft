@@ -8,7 +8,7 @@ class PublicationAuthorDisplayTests(unittest.TestCase):
         return library_paper_record(
             {
                 "Title": "Test Paper",
-                "Sort Date": "Aug 13, 2026",
+                "Date": "Aug 13, 2026",
                 "Display Authors": display_authors,
                 "all authors": all_authors,
             }

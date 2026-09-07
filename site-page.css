@@ -278,6 +278,7 @@ nav {
   background: rgba(12, 17, 24, 0.98);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transform: translateX(-45%) translateY(-4px);
   transition: opacity 150ms ease, transform 150ms ease;
@@ -289,6 +290,8 @@ nav {
 }
 
 .research-dropdown {
+  grid-template-columns: 1fr;
+  width: min(480px, calc(100vw - 56px));
   right: -120px;
   left: auto;
   transform: translateY(-4px);
@@ -306,6 +309,7 @@ nav {
 .has-menu:hover .dropdown,
 .has-menu:focus-within .dropdown {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: translateX(-45%) translateY(0);
 }
@@ -3632,8 +3636,8 @@ footer .wrap {
 
 .research-area-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 28px;
 }
 
 .research-area-card {
@@ -3641,11 +3645,8 @@ footer .wrap {
   display: grid;
   align-content: start;
   gap: 10px;
-  padding: 22px 22px 20px;
-  border: 1px solid var(--line);
+  padding: 18px 0 0;
   border-top: 3px solid var(--area-accent);
-  border-radius: 6px;
-  background: var(--panel);
   color: var(--ink);
   text-decoration: none;
 }
@@ -3786,10 +3787,6 @@ footer .wrap {
   align-items: start;
 }
 
-.research-area-prose {
-  max-width: 72ch;
-}
-
 .research-area-prose p {
   font-size: 1.05rem;
   line-height: 1.62;
@@ -3900,12 +3897,15 @@ footer .wrap {
 }
 
 /* Staff team headers */
+.mobile-research-areas { grid-column: 1 / -1; }
+.mobile-research-areas summary { padding: 12px 0; cursor: pointer; }
+.mobile-research-areas a { display: block; padding: 10px 16px; }
+.section-head.section-head-single { gap: 16px; }
 
 .staff-directory .section-head p {
   margin-bottom: 0;
   color: var(--body);
   font-size: 0.98rem;
-  max-width: 70ch;
 }
 
 .staff-team-areas {
@@ -3928,7 +3928,7 @@ footer .wrap {
 
 @media (max-width: 900px) {
   .research-area-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .research-area-layout {

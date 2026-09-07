@@ -3,22 +3,22 @@
     "publication_count": {
       "value": "190+",
       "label": "Publications",
-      "count": 191,
+      "count": 196,
       "rounded_count": 190,
       "source": "papers_sheet_sort_date",
       "rounded_to": 10
     },
     "scholar_citations": {
-      "value": "60,000+",
+      "value": "61,000+",
       "label": "Citations",
       "url": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en",
-      "count": 60379,
-      "rounded_count": 60000,
+      "count": 61245,
+      "rounded_count": 61000,
       "source": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en",
       "rounded_to": 1000
     },
     "model_downloads": {
-      "value": "125M+",
+      "value": "135M+",
       "label": "Model Downloads",
       "url": "https://huggingface.co/EleutherAI",
       "source": "https://huggingface.co/organizations/EleutherAI/settings/publisher/analytics?timePeriod=allTime"

@@ -6,9 +6,9 @@ import generate_hugo_data as generator
 def paper(title, date, marker="TRUE", url=None, venue=""):
     return {
         "Title": title,
-        "Sort Date": date,
+        "Date": date,
         "Highest Impact": marker,
-        "Link": url or f"https://example.com/papers/{title.lower()}",
+        "Paper Link": url or f"https://example.com/papers/{title.lower()}",
         "Conference or Journal": venue,
         "Workshop": "",
         "Status": "Accepted" if venue else "Preprint",

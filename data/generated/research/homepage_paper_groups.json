@@ -1,5 +1,114 @@
 [
   {
+    "family": "EMNLP",
+    "year": "2026",
+    "kind": "conference",
+    "label": "EMNLP, 2026",
+    "count": 6,
+    "sort_date": "2026-10-24",
+    "venues": [
+      {
+        "venue": "EMNLP System Demonstrations",
+        "label": "System Demonstrations",
+        "kind": "conference",
+        "count": 1,
+        "sort_date": "2026-10-24",
+        "papers": [
+          {
+            "title": "Bergson: An Open Source Library for Data Attribution",
+            "url": "https://arxiv.org/abs/2606.11660",
+            "date": "2026",
+            "date_sort": "2026-10-24",
+            "venue": "EMNLP System Demonstrations",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "EMNLP",
+            "group_sort_date": "2026-10-24",
+            "superlatives": []
+          }
+        ]
+      },
+      {
+        "venue": "EMNLP",
+        "label": "Main conference",
+        "kind": "conference",
+        "count": 3,
+        "sort_date": "2026-10-24",
+        "papers": [
+          {
+            "title": "Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations?",
+            "url": "",
+            "date": "2026",
+            "date_sort": "2026-10-24",
+            "venue": "EMNLP",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "EMNLP",
+            "group_sort_date": "2026-10-24",
+            "superlatives": []
+          },
+          {
+            "title": "Beetle: Structured Exposure Pretraining in Bilingual Language Models for Modelling L2 Language Processing",
+            "url": "",
+            "date": "2026",
+            "date_sort": "2026-10-24",
+            "venue": "EMNLP",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "EMNLP",
+            "group_sort_date": "2026-10-24",
+            "superlatives": []
+          },
+          {
+            "title": "Apples to Apples? Towards Comparable Crosslingual Language Model Evaluation",
+            "url": "https://arxiv.org/abs/2608.25089",
+            "date": "2026",
+            "date_sort": "2026-10-24",
+            "venue": "EMNLP",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "EMNLP",
+            "group_sort_date": "2026-10-24",
+            "superlatives": []
+          }
+        ]
+      },
+      {
+        "venue": "EMNLP Findings",
+        "label": "Findings",
+        "kind": "conference",
+        "count": 2,
+        "sort_date": "2026-10-24",
+        "papers": [
+          {
+            "title": "No Single Tokenizer Feature Reliably Predicts Downstream Language Model Performance",
+            "url": "",
+            "date": "2026",
+            "date_sort": "2026-10-24",
+            "venue": "EMNLP Findings",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "EMNLP",
+            "group_sort_date": "2026-10-24",
+            "superlatives": []
+          },
+          {
+            "title": "BuzzASR: A Swarm of 100+ Monolingual Speech Recognition Models",
+            "url": "",
+            "date": "2026",
+            "date_sort": "2026-10-24",
+            "venue": "EMNLP Findings",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "EMNLP",
+            "group_sort_date": "2026-10-24",
+            "superlatives": []
+          }
+        ]
+      }
+    ]
+  },
+  {
     "family": "COLM",
     "year": "2026",
     "kind": "conference",
@@ -252,7 +361,7 @@
     "year": "2026",
     "kind": "conference",
     "label": "NeurIPS, 2026",
-    "count": 10,
+    "count": 6,
     "sort_date": "2026-07-01",
     "venues": [
       {
@@ -322,27 +431,6 @@
         ]
       },
       {
-        "venue": "NeurIPS Datasets and Benchmarks",
-        "label": "Datasets and Benchmarks",
-        "kind": "conference",
-        "count": 1,
-        "sort_date": "2026-03-27",
-        "papers": [
-          {
-            "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
-            "url": "https://arxiv.org/abs/2603.26539",
-            "date": "2026",
-            "date_sort": "2026-03-27",
-            "venue": "NeurIPS Datasets and Benchmarks",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-03-27",
-            "superlatives": []
-          }
-        ]
-      },
-      {
         "venue": "Math-AI Workshop @ NeurIPS",
         "label": "Math-AI Workshop",
         "kind": "workshop",
@@ -383,62 +471,6 @@
             "superlatives": []
           }
         ]
-      },
-      {
-        "venue": "Mech Interp Workshop @ NeurIPS",
-        "label": "MechInterp Workshop",
-        "kind": "workshop",
-        "count": 2,
-        "sort_date": "2026-04-16",
-        "papers": [
-          {
-            "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
-            "url": "https://arxiv.org/abs/2501.16615",
-            "date": "2026",
-            "date_sort": "2026-04-23",
-            "venue": "Mech Interp Workshop @ NeurIPS",
-            "venue_year": "2026",
-            "kind": "workshop",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-04-16",
-            "superlatives": []
-          },
-          {
-            "title": "Evaluating SAE interpretability without explanations",
-            "url": "https://arxiv.org/abs/2507.08473",
-            "date": "2026",
-            "date_sort": "2026-04-23",
-            "venue": "Mech Interp Workshop @ NeurIPS",
-            "venue_year": "2026",
-            "kind": "workshop",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-04-16",
-            "superlatives": []
-          }
-        ]
-      },
-      {
-        "venue": "BioSafe Workshop at NeurIPS 2025",
-        "label": "BioSafe Workshop",
-        "kind": "workshop",
-        "count": 1,
-        "sort_date": "2026-04-16",
-        "papers": [
-          {
-            "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
-            "url": "https://arxiv.org/abs/2508.06601",
-            "date": "2026",
-            "date_sort": "2026-04-23",
-            "venue": "BioSafe Workshop at NeurIPS 2025",
-            "venue_year": "2026",
-            "kind": "workshop",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-04-16",
-            "superlatives": [
-              "Best Paper Runner-Up at BioSafe Workshop, NeurIPS"
-            ]
-          }
-        ]
       }
     ]
   },
@@ -467,37 +499,6 @@
             "kind": "conference",
             "family": "FAccT",
             "group_sort_date": "2026-06-25",
-            "superlatives": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "family": "EMNLP",
-    "year": "2026",
-    "kind": "conference",
-    "label": "EMNLP, 2026",
-    "count": 1,
-    "sort_date": "2026-06-10",
-    "venues": [
-      {
-        "venue": "EMNLP System Demonstrations",
-        "label": "System Demonstrations",
-        "kind": "conference",
-        "count": 1,
-        "sort_date": "2026-06-10",
-        "papers": [
-          {
-            "title": "Bergson: An Open Source Library for Data Attribution",
-            "url": "https://arxiv.org/abs/2606.11660",
-            "date": "2026",
-            "date_sort": "2026-06-10",
-            "venue": "EMNLP System Demonstrations",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "EMNLP",
-            "group_sort_date": "2026-06-10",
             "superlatives": []
           }
         ]
@@ -605,37 +606,6 @@
             "kind": "workshop",
             "family": "ICLR",
             "group_sort_date": "2026-04-20",
-            "superlatives": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "family": "arXiv",
-    "year": "2026",
-    "kind": "arxiv",
-    "label": "arXiv, 2026",
-    "count": 1,
-    "sort_date": "2026-01-01",
-    "venues": [
-      {
-        "venue": "arXiv",
-        "label": "Preprints",
-        "kind": "arxiv",
-        "count": 1,
-        "sort_date": "2026-01-01",
-        "papers": [
-          {
-            "title": "Queer NLP: A Critical Survey on Literature Gaps, Biases and Trends",
-            "url": "https://arxiv.org/abs/2602.16151",
-            "date": "2026",
-            "date_sort": "2026-02-18",
-            "venue": "arXiv",
-            "venue_year": "2026",
-            "kind": "arxiv",
-            "family": "arXiv",
-            "group_sort_date": "2026-01-01",
             "superlatives": []
           }
         ]

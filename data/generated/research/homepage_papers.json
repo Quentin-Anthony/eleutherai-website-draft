@@ -1,5 +1,77 @@
 [
   {
+    "title": "No Single Tokenizer Feature Reliably Predicts Downstream Language Model Performance",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP Findings",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "EMNLP",
+    "group_sort_date": "2026-10-24",
+    "superlatives": []
+  },
+  {
+    "title": "Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations?",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "EMNLP",
+    "group_sort_date": "2026-10-24",
+    "superlatives": []
+  },
+  {
+    "title": "BuzzASR: A Swarm of 100+ Monolingual Speech Recognition Models",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP Findings",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "EMNLP",
+    "group_sort_date": "2026-10-24",
+    "superlatives": []
+  },
+  {
+    "title": "Bergson: An Open Source Library for Data Attribution",
+    "url": "https://arxiv.org/abs/2606.11660",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP System Demonstrations",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "EMNLP",
+    "group_sort_date": "2026-10-24",
+    "superlatives": []
+  },
+  {
+    "title": "Beetle: Structured Exposure Pretraining in Bilingual Language Models for Modelling L2 Language Processing",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "EMNLP",
+    "group_sort_date": "2026-10-24",
+    "superlatives": []
+  },
+  {
+    "title": "Apples to Apples? Towards Comparable Crosslingual Language Model Evaluation",
+    "url": "https://arxiv.org/abs/2608.25089",
+    "date": "2026",
+    "date_sort": "2026-10-24",
+    "venue": "EMNLP",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "EMNLP",
+    "group_sort_date": "2026-10-24",
+    "superlatives": []
+  },
+  {
     "title": "Where Does Social Reasoning Come From? Capability Provenance in Language Models",
     "url": "https://arxiv.org/abs/2606.19625",
     "date": "2026",
@@ -47,78 +119,6 @@
     "kind": "conference",
     "family": "ICML",
     "group_sort_date": "2026-07-08",
-    "superlatives": []
-  },
-  {
-    "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
-    "url": "https://arxiv.org/abs/2602.16763",
-    "date": "2026",
-    "date_sort": "2026-07-07",
-    "venue": "ICML",
-    "venue_year": "2026",
-    "kind": "conference",
-    "family": "ICML",
-    "group_sort_date": "2026-07-07",
-    "superlatives": []
-  },
-  {
-    "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
-    "url": "https://arxiv.org/abs/2603.00131",
-    "date": "2026",
-    "date_sort": "2026-07-11",
-    "venue": "Agents in the Wild @ ICML",
-    "venue_year": "2026",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2026-07-04",
-    "superlatives": []
-  },
-  {
-    "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
-    "url": "https://arxiv.org/abs/2601.04301",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "Foundations of Deep Generative Models @ ICML",
-    "venue_year": "2026",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2026-07-03",
-    "superlatives": []
-  },
-  {
-    "title": "Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-    "url": "https://arxiv.org/abs/2606.06533",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "MechInterp Workshop @ ICML",
-    "venue_year": "2026",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2026-07-03",
-    "superlatives": []
-  },
-  {
-    "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-    "url": "https://arxiv.org/abs/2511.07002",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "Mechanistic interpretability workshop @ ICML",
-    "venue_year": "2026",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2026-07-03",
-    "superlatives": []
-  },
-  {
-    "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
-    "url": "https://arxiv.org/abs/2603.26663",
-    "date": "2026",
-    "date_sort": "2026-07-02",
-    "venue": "ACL Findings",
-    "venue_year": "2026",
-    "kind": "conference",
-    "family": "ACL",
-    "group_sort_date": "2026-07-02",
     "superlatives": []
   }
 ]

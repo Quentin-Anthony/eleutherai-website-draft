@@ -142,17 +142,17 @@ The principal Sheet columns currently used are:
 | Sheet column | How the website uses it |
 | --- | --- |
 | `Title` | Display title and record identity |
-| `Sort Date` | Determines whether a paper enters the public library; supplies its displayed year and chronological sort |
+| `Date` | Determines whether a paper enters the public library; supplies its displayed year and chronological sort |
 | `Highest Impact` | Selects papers for the generated homepage Recent outputs candidate set; checked rows export as `TRUE` |
 | `Display Authors` | Author line shown in the Research Library |
 | `All Authors` | Complete semicolon-separated author list used for author search and metadata generation |
 | `Area` | Semicolon-separated research-area metadata used by generated collections and filters |
-| `Link` | Makes the paper entry clickable |
+| `Paper Link` | Makes the paper entry clickable |
 | `Conference or Journal` | Primary archival venue; blank values fall back to a workshop or arXiv |
 | `Workshop` | Workshop appearance; may coexist with an archival venue |
 | `Superlative` | Oral, spotlight, best-paper, and runner-up text and symbols |
 
-A row must have both a normalized title and a parseable `Sort Date` to appear in the main Research Library and publication count.
+A row must have both a normalized title and a parseable `Date` to appear in the main Research Library and publication count.
 
 ### 2. Normalize links, dates, and venues
 
@@ -165,7 +165,7 @@ Venue logic is derived from `Conference or Journal` and `Workshop`:
 
 The generator maps the simplified Sheet schema into its internal publication model:
 
-- `Sort Date` controls inclusion and the one-record-per-paper library chronology.
+- `Date` controls inclusion and the one-record-per-paper library chronology.
 - The same date is used for conference and workshop appearance sorting because the Sheet intentionally maintains one date per paper.
 - arXiv groups are normalized to January 1 so they are treated as the earliest chronological point in their year and appear after later conference and workshop groups in the newest-first display.
 - Workshop sort dates receive a seven-day offset so a corresponding main conference is presented above its workshops.
@@ -244,7 +244,7 @@ The generator writes `data/generated/home_generated_metrics.json` from three sou
 
 #### Publications
 
-It counts unique titled Sheet rows with a valid `Sort Date`, rounds the result down to the nearest 25, and appends `+`. The resulting object uses the key `publication_count`.
+It counts unique titled Sheet rows with a valid `Date`, rounds the result down to the nearest 25, and appends `+`. The resulting object uses the key `publication_count`.
 
 #### Citations
 

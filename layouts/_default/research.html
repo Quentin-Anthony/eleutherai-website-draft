@@ -20,7 +20,7 @@
   {{ with .Content }}
     <section class="section research-goals">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head section-head-single">
           <div><h2>Research Goals</h2></div>
           <div class="prose">
             {{ . }}
@@ -32,7 +32,7 @@
 
   <section class="section research-areas" id="areas">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head section-head-single">
         <div><h2>Research Areas</h2></div>
         <p class="section-intro">Our work is organized around five main areas. Each page describes what we are working on now, the artifacts we maintain, and the papers behind them.</p>
       </div>
@@ -66,7 +66,7 @@
   {{ with site.Data.research.areas.projects }}
     <section class="section research-projects" id="projects">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head section-head-single">
           <div><h2>Major Projects</h2></div>
           <p class="section-intro">{{ .intro }}</p>
         </div>

@@ -64,14 +64,14 @@ SCHOLAR_USER_AGENT = (
 HF_ANALYTICS_URL = "https://huggingface.co/organizations/EleutherAI/settings/publisher/analytics?timePeriod=allTime"
 HF_MODEL_DOWNLOADS_CACHE = GENERATED_DIR / "hf_model_downloads_cache.json"
 REQUIRED_PAPER_HEADERS = {
-    "Sort Date",
+    "Date",
+    "Paper Link",
     "Title",
     "Display Authors",
     "Area",
     "Conference or Journal",
     "Workshop",
     "Superlative",
-    "Link",
     "All Authors",
 }
 
@@ -226,11 +226,12 @@ def row_superlatives(row):
 
 def normalize_paper_row(row):
     normalized = dict(row)
-    sort_date = (row.get("Sort Date") or "").strip()
+    sort_date = (header_value(row, "Date") or "").strip()
     conference = (row.get("Conference or Journal") or "").strip()
     workshop = (row.get("Workshop") or "").strip()
     areas = [area.strip() for area in re.split(r"[;,]", row.get("Area") or "") if area.strip()]
 
+    normalized["Date"] = sort_date
     normalized["Pub Date"] = (row.get("Pub Date") or sort_date).strip()
     normalized["Archival Date"] = (row.get("Archival Date") or (sort_date if conference else "")).strip()
     normalized["Workshop Date"] = (row.get("Workshop Date") or (sort_date if workshop else "")).strip()
@@ -241,6 +242,7 @@ def normalize_paper_row(row):
     ).strip()
     normalized["all authors"] = (header_value(row, "all authors") or "").strip()
     normalized["Highest Impact"] = (header_value(row, "highest impact") or "").strip()
+    normalized["Paper Link"] = (header_value(row, "Paper Link") or "").strip()
     if not (row.get("Status") or "").strip():
         normalized["Status"] = "Accepted" if conference or workshop else "Preprint"
     return normalized
@@ -285,7 +287,7 @@ def author_search_terms(authors):
 
 def paper_url(row):
     title = normalize_title(row.get("Title"))
-    return clean_link(row.get("Link")) or PAPER_URL_OVERRIDES.get(title, "")
+    return clean_link(row.get("Paper Link")) or PAPER_URL_OVERRIDES.get(title, "")
 
 
 def looks_like_workshop(value):
@@ -393,7 +395,7 @@ def venue_track_label(venue, family, kind):
 
 def row_date(row):
     return first_valid_date(
-        parse_date(row.get("Sort Date")),
+        parse_date(row.get("Date")),
         parse_date(row.get("Release Date")),
         parse_date(row.get("Archival Date")),
     )
@@ -1073,11 +1075,11 @@ def recent_outputs(rows, blog_posts, limit=HOME_RECENT_OUTPUT_LIMIT):
         if not selected:
             continue
         title = normalize_title(row.get("Title"))
-        date_value = (row.get("Sort Date") or "").strip()
+        date_value = (row.get("Date") or "").strip()
         date = parse_output_date(date_value)
         url = paper_url(row)
         if not title or date == datetime.min or not url:
-            raise ValueError(f"Highest Impact paper is missing a title, Sort Date, or link: {title or '<untitled>'}")
+            raise ValueError(f"Highest Impact paper is missing a title, Date, or link: {title or '<untitled>'}")
         venue = homepage_venue(row)
         display_date = format_output_date(date_value)
         meta = f"{venue} · {display_date}" if venue else display_date
