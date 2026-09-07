@@ -70,8 +70,6 @@ priorities:
     layout: "safety"
     accent: "violet"
     images:
-      - src: "images/research/homepage/open-weight-safety.svg"
-        alt: "Hazardous documents stopped at a filter before pretraining; the remaining data trains an open-weight model"
       - src: "images/research/homepage/deep-ignorance-figure-1.svg"
         alt: "Deep Ignorance Figure 1: filtered models match the baseline on general capability while biothreat proxy capability stays lower through 300M tokens of adversarial fine-tuning"
     text: |-

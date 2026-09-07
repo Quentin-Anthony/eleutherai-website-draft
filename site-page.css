@@ -289,17 +289,38 @@ nav {
   width: 220px;
 }
 
-.nav-item.research-nav { position: static; }
+.nav-menu { align-self: stretch; }
+.nav-item.research-nav {
+  position: static;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
 .research-dropdown {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: min(960px, calc(100vw - 56px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(780px, calc(100vw - 56px));
+  padding: 16px;
+  gap: 20px;
   top: 100%;
   right: 28px;
   left: auto;
   transform: translateY(-4px);
 }
 
-.research-dropdown-all { grid-column: 1 / -1; }
+.research-dropdown .dropdown-group { gap: 6px; }
+.research-dropdown .dropdown-group:nth-child(5n + 1) { --group-accent: var(--blue); }
+.research-dropdown .dropdown-group:nth-child(5n + 2) { --group-accent: var(--green); }
+.research-dropdown .dropdown-group:nth-child(5n + 3) { --group-accent: var(--violet); }
+.research-dropdown .dropdown-group:nth-child(5n + 4) { --group-accent: var(--gold); }
+.research-dropdown .dropdown-group:nth-child(5n + 5) { --group-accent: var(--coral); }
+.research-dropdown .dropdown-group > span {
+  color: var(--group-accent);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+  margin-bottom: 4px;
+}
 
 .dropdown::before {
   content: "";
@@ -3716,6 +3737,20 @@ footer .wrap {
 /* ---------------------------------------------------------------------------
    Research index and research-area pages
    --------------------------------------------------------------------------- */
+
+.research-directory-group { --group-accent: var(--blue); border: 0; }
+.research-directory-group:nth-of-type(3) { --group-accent: var(--green); }
+.research-directory-group:nth-of-type(4) { --group-accent: var(--violet); }
+.research-directory-group h2 { color: var(--group-accent); margin-bottom: 28px; }
+.research-directory-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; list-style: none; padding: 0; margin: 0; }
+.research-directory-list h3 { margin: 0 0 8px; font-size: 1.25rem; }
+.research-directory-list h3 a { color: var(--ink); }
+.research-directory-list h3 a:hover, .research-directory-list h3 a:focus-visible { color: var(--group-accent); }
+.research-directory-list h3 span { color: var(--group-accent); }
+.research-directory-list p { margin: 0; color: var(--body); }
+@media (max-width: 700px) {
+  .research-directory-list { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
 
 .research-area-grid {
   display: grid;
