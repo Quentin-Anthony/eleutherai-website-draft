@@ -69,8 +69,11 @@ priorities:
     title: "Open-Weight Safety"
     layout: "safety"
     accent: "violet"
-    image: "images/research/homepage/open-weight-safety.svg"
-    image_alt: "Hazardous documents filtered out of pretraining data before training, producing a model whose safeguard holds against fine-tuning attacks"
+    images:
+      - src: "images/research/homepage/open-weight-safety.svg"
+        alt: "Hazardous documents stopped at a filter before pretraining; the remaining data trains an open-weight model"
+      - src: "images/research/homepage/deep-ignorance-figure-1.svg"
+        alt: "Deep Ignorance Figure 1: filtered models match the baseline on general capability while biothreat proxy capability stays lower through 300M tokens of adversarial fine-tuning"
     text: |-
       Open models need a safety science built for openness. We have championed open models since our founding, and we believe they can be safe without giving up the freedom to inspect, modify, and deploy them. That requires interventions in the training data, the training process, and the model itself: techniques that are technologically and philosophically compatible with the open source movement. EleutherAI is building the field of open-weight safety, defining its problems, developing new approaches, and creating the infrastructure researchers need to test them.
 

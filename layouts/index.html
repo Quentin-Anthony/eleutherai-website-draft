@@ -144,6 +144,12 @@
                   </tbody>
                 </table>
               </div>
+            {{ else if .images }}
+              <div class="home-research-visual home-research-visual-stack">
+                {{ range .images }}
+                  <img src="{{ .src | relURL }}" alt="{{ .alt }}" loading="lazy">
+                {{ end }}
+              </div>
             {{ else }}
               <div class="home-research-visual">
                 <img src="{{ .image | relURL }}" alt="{{ .image_alt }}" loading="lazy">

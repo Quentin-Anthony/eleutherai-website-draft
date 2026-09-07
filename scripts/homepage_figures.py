@@ -99,53 +99,52 @@ def evaluation_figure():
     logistic = lambda center, k, top=0.97: top / (1 + np.exp(-k * (x - center)))
 
     # Older benchmarks: saturate early, pinned against the ceiling on the right.
-    for center, k, alpha in [(0.14, 22, 1.0), (0.24, 18, 0.75), (0.34, 15, 0.5)]:
-        ax.plot(x, logistic(center, k), color=GOLD, lw=3.5, alpha=alpha, solid_capstyle="round")
+    for i, (center, k, alpha) in enumerate([(0.14, 22, 1.0), (0.24, 18, 0.75), (0.34, 15, 0.5)]):
+        ax.plot(x, logistic(center, k), color=GOLD, lw=3.5, alpha=alpha, solid_capstyle="round",
+                label="Older Benchmarks" if i == 0 else None)
         ax.plot(1, logistic(center, k)[-1], "o", ms=10, mfc=BG, mec=GOLD, mew=2.5)
     # Newer benchmarks: still climbing.
-    for center, k, alpha in [(0.85, 8, 1.0), (1.05, 8, 0.65)]:
-        ax.plot(x, logistic(center, k), color=BLUE, lw=3.5, alpha=alpha, solid_capstyle="round")
+    for i, (center, k, alpha) in enumerate([(0.85, 8, 1.0), (1.05, 8, 0.65)]):
+        ax.plot(x, logistic(center, k), color=BLUE, lw=3.5, alpha=alpha, solid_capstyle="round",
+                label="Newer Benchmarks" if i == 0 else None)
         ax.plot(1, logistic(center, k)[-1], "o", ms=10, mfc=BG, mec=BLUE, mew=2.5)
 
     ax.axhline(0.97, color=GOLD, lw=2, ls=(0, (6, 6)))
     ax.text(0.995, 0.995, "Ceiling", color=GOLD, fontsize=18, ha="right", va="bottom")
 
     # Annotations sit in the empty regions; move freely.
-    ax.text(0.50, 0.76, "Saturated: No Longer\nSeparates Models", color=TEXT, fontsize=19,
+    ax.text(0.50, 0.74, "Saturated: No Longer\nSeparates Models", color=TEXT, fontsize=19,
             ha="left", va="top", linespacing=1.3)
-    ax.text(0.40, 0.30, "Still Informative", color=BLUE, fontsize=19, ha="left", va="bottom")
+    ax.text(0.40, 0.20, "Still Informative", color=BLUE, fontsize=19, ha="left", va="bottom")
 
-    # Legend as plain text in the upper-left gap.
-    ax.plot([0.04, 0.10], [0.62, 0.62], color=GOLD, lw=4)
-    ax.text(0.12, 0.62, "Older Benchmarks", color=TEXT, fontsize=18, va="center")
-    ax.plot([0.04, 0.10], [0.54, 0.54], color=BLUE, lw=4)
-    ax.text(0.12, 0.54, "Newer Benchmarks", color=TEXT, fontsize=18, va="center")
+    # Legend above the axes, out of the way of every curve.
+    ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.02), ncol=2, frameon=False, fontsize=18,
+              handlelength=1.6, columnspacing=2.0, labelcolor=TEXT)
 
     ax.set_xlim(0, 1.02)
     ax.set_ylim(0, 1.08)
-    ax.set_xlabel("Time Since Release  →", fontsize=19, loc="right", labelpad=12)
-    ax.set_ylabel("Score", fontsize=19, loc="top", rotation=0, labelpad=-30)
+    ax.set_xlabel("Time Since Benchmark Release  →", fontsize=19, loc="right", labelpad=12)
+    ax.set_ylabel("Score", fontsize=19, loc="top", rotation=0, labelpad=16)
     return fig, ax
 
 
 # ---------------------------------------------------------------------------
 # 2. Open-weight safety: filtering pretraining data
 # ---------------------------------------------------------------------------
-def open_weight_safety_figure(show_attack=True):
+def open_weight_safety_figure():
     fig, ax = plt.subplots(figsize=FIGSIZE)
     blank_axes(ax, spines=())
-    ax.set_xlim(0, 14)
+    ax.set_xlim(0, 10.6)
     ax.set_ylim(0, 9.8)
     ax.set_aspect("equal")
 
-    # Pretraining documents flowing right; coral ones are hazardous.
+    # Pretraining documents flowing right; coral ones are hazardous and stop at the filter.
     docs_y = np.linspace(7.4, 1.4, 6)
     hazardous = {1, 4}
     ax.text(1.2, 9.0, "Pretraining Data", color=TEXT, fontsize=19, fontweight="bold", ha="center")
     for i, y in enumerate(docs_y):
         color = CORAL if i in hazardous else VIOLET
         document(ax, 0.75, y - 0.55, color=color)
-        # kept docs continue through the filter to the model; hazardous ones stop at the filter
         end = 3.0 if i in hazardous else 6.1
         ax.plot([1.85, end], [y, y], color=color, lw=2.5, alpha=0.9, zorder=1)
 
@@ -156,28 +155,61 @@ def open_weight_safety_figure(show_attack=True):
         ax.plot([3.08, 3.27], [y, y], color=VIOLET, lw=2, zorder=5)
     ax.text(3.17, 0.15, "Filter", color=TEXT, fontsize=19, fontweight="bold", ha="center")
 
-    # Hazardous docs are diverted downward.
-    for i in hazardous:
-        y = docs_y[i]
-        ax.add_patch(FancyArrowPatch((3.35, y), (4.6, 0.55), connectionstyle="arc3,rad=-0.35",
-                                     arrowstyle="-|>", mutation_scale=22, color=CORAL, lw=2.5, zorder=3))
-    ax.text(4.75, 0.35, "Removed", color=CORAL, fontsize=18, ha="left", va="center")
-
     # Model: a real network.
     ax.add_patch(FancyBboxPatch((6.1, 0.9), 3.9, 7.2, boxstyle="round,pad=0.02,rounding_size=0.25",
                                 facecolor="#0b1018", edgecolor=VIOLET, lw=2.5, zorder=2))
     neural_network(ax, 6.6, 1.3, 2.9, 5.4, layers=(5, 7, 7, 4), color=VIOLET, node_ms=12)
     ax.text(8.05, 8.55, "Open-Weight Model", color=TEXT, fontsize=19, fontweight="bold", ha="center", zorder=8)
-
-    # Optional: adversarial fine-tuning hitting a model that never learned the content.
-    if show_attack:
-        for y in (6.2, 4.5, 2.8):
-            ax.add_patch(FancyArrowPatch((13.2, y), (10.45, y), arrowstyle="-|>", mutation_scale=22,
-                                         color=CORAL, lw=2.5, zorder=3))
-        ax.plot([10.25, 10.25], [1.4, 7.6], color=VIOLET, lw=4, solid_capstyle="round", zorder=4)
-        ax.text(12.3, 7.5, "Adversarial\nFine-Tuning", color=TEXT, fontsize=18, fontweight="bold",
-                ha="center", va="center", linespacing=1.2)
     return fig, ax
+
+
+# Deep Ignorance, Figure 1, redrawn in the site palette.
+# Colors follow the schematic above: coral = unfiltered (hazard retained), violet = filtered.
+# !! The numbers below are read off the published figure by eye. Replace them with the
+# !! values from the paper's results before shipping. Shapes and axes are the paper's.
+DI_GENERAL = {"Baseline": 0.545, "Weak Filter": 0.55, "Strong Filter": 0.55}          # avg on 4 benchmarks
+DI_TOKENS = np.array([0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300])     # millions
+DI_BIOTHREAT = {                                                                        # WMDP-Bio cloze
+    "Baseline":      np.array([0.355, 0.375, 0.39, 0.40, 0.41, 0.42, 0.43, 0.435, 0.44, 0.445, 0.45, 0.45, 0.455]),
+    "Weak Filter":   np.array([0.31, 0.33, 0.345, 0.36, 0.37, 0.38, 0.385, 0.39, 0.395, 0.40, 0.405, 0.41, 0.41]),
+    "Strong Filter": np.array([0.285, 0.30, 0.31, 0.32, 0.33, 0.34, 0.345, 0.35, 0.355, 0.36, 0.365, 0.37, 0.37]),
+}
+DI_RANDOM = 0.25
+DI_COLORS = {"Baseline": CORAL, "Weak Filter": GOLD, "Strong Filter": VIOLET}
+
+
+def deep_ignorance_figure():
+    fig, (left, right) = plt.subplots(1, 2, figsize=FIGSIZE, gridspec_kw={"width_ratios": [1, 2.2], "wspace": 0.35})
+    for ax in (left, right):
+        ax.grid(False)
+        for side in ("top", "right"):
+            ax.spines[side].set_visible(False)
+        for side in ("left", "bottom"):
+            ax.spines[side].set_linewidth(2)
+        ax.tick_params(labelsize=15, length=5, width=1.5, colors=TEXT)
+
+    names = list(DI_GENERAL)
+    left.bar(range(3), [DI_GENERAL[n] for n in names], color=[DI_COLORS[n] for n in names], width=0.7)
+    left.set_xticks([])
+    left.set_ylim(0, 0.65)
+    left.set_yticks([0, 0.2, 0.4, 0.6])
+    left.set_title("General Capability  ↑\n(Avg. on 4 Benchmarks)", fontsize=16, color=TEXT, pad=14)
+
+    for n in names:
+        right.plot(DI_TOKENS, DI_BIOTHREAT[n], color=DI_COLORS[n], lw=3.2, label=n, solid_capstyle="round")
+    right.axhline(DI_RANDOM, color=MUTED, lw=1.8, ls=(0, (6, 6)))
+    right.text(DI_TOKENS[-1], DI_RANDOM - 0.008, "Random", color=MUTED, fontsize=14, ha="right", va="top")
+    right.set_xlim(0, 300)
+    right.set_ylim(0.23, 0.5)
+    right.set_xticks([0, 100, 200, 300])
+    right.set_xticklabels(["0", "100M", "200M", "300M"])
+    right.set_yticks([0.25, 0.3, 0.35, 0.4, 0.45])
+    right.set_xlabel("Adversarial Fine-Tuning Tokens", fontsize=16, labelpad=10)
+    right.set_title("Biothreat Proxy Capability  ↓\n(WMDP-Bio, Cloze Eval)", fontsize=16, color=TEXT, pad=14)
+
+    fig.legend(loc="lower center", bbox_to_anchor=(0.5, -0.13), ncol=3, frameon=False, fontsize=17,
+               handlelength=1.8, columnspacing=2.2, labelcolor=TEXT)
+    return fig, (left, right)
 
 
 # ---------------------------------------------------------------------------
@@ -187,7 +219,8 @@ def interpretability_figure():
     fig, ax = plt.subplots(figsize=FIGSIZE)
     blank_axes(ax)
     ax.set_xlim(-0.02, 1.08)
-    ax.set_ylim(-0.02, 1.12)
+    ax.set_ylim(-0.14, 1.12)
+    ax.spines["bottom"].set_position(("data", 0))
 
     x = np.linspace(0, 1, 400)
     loss = 0.12 + 0.88 * np.exp(-4.2 * x)
@@ -201,11 +234,11 @@ def interpretability_figure():
     ax.plot(ckpt_x, ckpt_y, "o", ms=11, mfc=BG, mec=GREEN, mew=2.5, zorder=3)
 
     ax.set_xlabel("Training Steps  →", fontsize=19, loc="right", labelpad=12)
-    ax.set_ylabel("Loss", fontsize=19, loc="top", rotation=0, labelpad=-30)
-    ax.text(0.5, -0.09, "Saved Checkpoints", color=TEXT, fontsize=18, ha="center", va="top")
-    ax.plot([0.0, 1.0], [-0.045, -0.045], color=GREEN, lw=1.5, alpha=0.8)  # bracket line under the ticks
-    ax.plot([0.0, 0.0], [-0.045, -0.025], color=GREEN, lw=1.5, alpha=0.8)
-    ax.plot([1.0, 1.0], [-0.045, -0.025], color=GREEN, lw=1.5, alpha=0.8)
+    ax.set_ylabel("Loss", fontsize=19, loc="top", rotation=0, labelpad=16)
+    # "Saved Checkpoints" label with a leader line to the foot of one checkpoint's dashed line.
+    ax.text(0.15, -0.10, "Saved Checkpoints", color=TEXT, fontsize=18, ha="left", va="top")
+    ax.annotate("", xy=(ckpt_x[3], -0.005), xytext=(0.22, -0.09),
+                arrowprops=dict(arrowstyle="-", color=GREEN, lw=1.8, shrinkA=0, shrinkB=0))
 
     # Lens over one checkpoint: the network inside is what we study.
     # The axes are not square, so an Ellipse in data units is what renders as a circle.
@@ -220,14 +253,14 @@ def interpretability_figure():
 
     # What we do at every checkpoint.
     todo = ["Probe Representations", "Trace Behavior to Training Data", "Compare Across Checkpoints"]
-    ax.text(0.30, 1.08, "At Every Checkpoint", color=GREEN, fontsize=18, fontweight="bold", ha="left", va="center")
     for i, label in enumerate(todo):
-        ax.text(0.30, 1.005 - i * 0.075, "•  " + label, color=TEXT, fontsize=18, ha="left", va="center")
+        ax.text(0.30, 1.06 - i * 0.075, "•  " + label, color=TEXT, fontsize=18, ha="left", va="center")
     return fig, ax
 
 
 if __name__ == "__main__":
     fig, _ = evaluation_figure(); save(fig, "evaluation")
     fig, _ = open_weight_safety_figure(); save(fig, "open-weight-safety")
+    fig, _ = deep_ignorance_figure(); save(fig, "deep-ignorance-figure-1")
     fig, _ = interpretability_figure(); save(fig, "interpretability-over-time")
-    print("wrote 3 SVGs")
+    print("wrote 4 SVGs")

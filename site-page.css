@@ -705,6 +705,10 @@ h2 {
   padding: 8px 4px;
 }
 
+.home-research-visual-stack img + img {
+  border-top: 1px solid var(--line);
+}
+
 .home-research-table {
   width: 100%;
   border-collapse: collapse;
