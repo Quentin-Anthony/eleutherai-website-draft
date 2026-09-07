@@ -289,13 +289,17 @@ nav {
   width: 220px;
 }
 
+.nav-item.research-nav { position: static; }
 .research-dropdown {
-  grid-template-columns: 1fr;
-  width: min(480px, calc(100vw - 56px));
-  right: -120px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(960px, calc(100vw - 56px));
+  top: 100%;
+  right: 28px;
   left: auto;
   transform: translateY(-4px);
 }
+
+.research-dropdown-all { grid-column: 1 / -1; }
 
 .dropdown::before {
   content: "";

@@ -10,6 +10,17 @@
 # `featured: true` areas appear in the main grid on /research/; the rest are
 # listed below it.
 
+# Navigation groupings may overlap; they do not define exclusive research ownership.
+navigation:
+  - title: "Capabilities"
+    areas: ["open_models", "evaluation", "multilingual", "multimodal"]
+  - title: "Interpretability"
+    areas: ["interpretability"]
+  - title: "Safety"
+    areas: ["open_weight_safety", "behavioral_safety", "security"]
+  - title: "Miscellaneous"
+    areas: ["ai4science", "governance"]
+
 areas:
   - key: "interpretability"
     slug: "interpretability"
