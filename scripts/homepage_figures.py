@@ -116,6 +116,7 @@ def evaluation_figure():
     ax.text(0.50, 0.74, "Saturated: No Longer\nSeparates Models", color=TEXT, fontsize=19,
             ha="left", va="top", linespacing=1.3,
             bbox=dict(boxstyle="round,pad=0.5", facecolor=BG, edgecolor=GOLD, lw=1.8))
+    ax.text(0.36, 0.22, "Still Informative", color=BLUE, fontsize=19, ha="left", va="bottom")
 
     # Legend above the axes, out of the way of every curve.
     ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.02), ncol=2, frameon=False, fontsize=18,
@@ -166,29 +167,28 @@ def open_weight_safety_figure():
 # Deep Ignorance, Figure 1, redrawn in the site palette.
 # Colors follow the schematic above: coral = unfiltered (hazard retained), violet = filtered.
 #
-# Sources (github.com/EleutherAI/deep-ignorance, HF_README.md results table):
-#   Baseline      = deep-ignorance-unfiltered
-#   Weak Filter   = deep-ignorance-e2e-weak-filter
-#   Strong Filter = deep-ignorance-e2e-strong-filter
-# General-capability bars and the 0-token starting point of each attack curve are the
-# exact values from that table. The attack trajectories (accuracy vs. adversarial
-# fine-tuning tokens) are logged to wandb and are not in the repo, so the shape of each
-# curve beyond its first point is approximate. Replace DI_BIOTHREAT with the real
-# per-checkpoint numbers when you have them.
+# Sources:
+#   Bars: exact end-of-training averages (MMLU, PIQA, Lambada, HellaSwag) from the results
+#   table in github.com/EleutherAI/deep-ignorance/HF_README.md, for deep-ignorance-unfiltered,
+#   deep-ignorance-e2e-weak-filter and deep-ignorance-e2e-strong-filter.
+#   Attack curves: digitized from Figure 1 of the paper (arXiv:2508.06601) at 25M-token
+#   intervals, with the shaded band width read off the same figure. The per-checkpoint
+#   values live in wandb, not the repo; replace DI_BIOTHREAT / DI_BAND with the real series
+#   (and finer spacing) when they are exported.
 DI_GENERAL = {"Baseline": 0.5605, "Weak Filter": 0.5737, "Strong Filter": 0.5553}
 DI_TOKENS = np.array([0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300])     # millions
-DI_START = {"Baseline": 0.3634, "Weak Filter": 0.2574, "Strong Filter": 0.2444}       # exact (0 tokens)
-DI_END = {"Baseline": 0.455, "Weak Filter": 0.40, "Strong Filter": 0.37}              # approximate
 DI_BIOTHREAT = {
-    name: DI_START[name] + (DI_END[name] - DI_START[name]) * (1 - np.exp(-DI_TOKENS / 110))
-    for name in DI_GENERAL
+    "Baseline":      np.array([0.365, 0.376, 0.390, 0.399, 0.409, 0.415, 0.425, 0.440, 0.441, 0.440, 0.439, 0.441, 0.445]),
+    "Weak Filter":   np.array([0.278, 0.330, 0.340, 0.356, 0.365, 0.369, 0.378, 0.394, 0.392, 0.393, 0.395, 0.398, 0.402]),
+    "Strong Filter": np.array([0.250, 0.310, 0.325, 0.340, 0.350, 0.355, 0.364, 0.385, 0.380, 0.375, 0.378, 0.380, 0.382]),
 }
+DI_BAND = 0.008          # half-width of the shaded uncertainty band, as drawn in the paper
 DI_RANDOM = 0.25
 DI_COLORS = {"Baseline": CORAL, "Weak Filter": GOLD, "Strong Filter": VIOLET}
 
 
-def deep_ignorance_figure():
-    fig, (left, right) = plt.subplots(1, 2, figsize=FIGSIZE, gridspec_kw={"width_ratios": [1, 2.2], "wspace": 0.35})
+def deep_ignorance_figure(annotate_recovery=True):
+    fig, (left, right) = plt.subplots(1, 2, figsize=FIGSIZE, gridspec_kw={"width_ratios": [1, 2.4], "wspace": 0.32})
     for ax in (left, right):
         ax.grid(False)
         for side in ("top", "right"):
@@ -206,13 +206,27 @@ def deep_ignorance_figure():
     left.set_title("General Capability  ↑\n(Avg. on 4 Benchmarks)", fontsize=16, color=TEXT, pad=14)
 
     for n in names:
-        right.plot(DI_TOKENS, DI_BIOTHREAT[n], color=DI_COLORS[n], lw=3.2, label=n, solid_capstyle="round")
+        y = DI_BIOTHREAT[n]
+        right.fill_between(DI_TOKENS, y - DI_BAND, y + DI_BAND, color=DI_COLORS[n], alpha=0.22, lw=0)
+        right.plot(DI_TOKENS, y, color=DI_COLORS[n], lw=2.8, label=n, solid_capstyle="round", solid_joinstyle="round")
     right.axhline(DI_RANDOM, color=MUTED, lw=1.8, ls=(0, (6, 6)))
-    right.text(DI_TOKENS[-1], DI_RANDOM - 0.008, "Random", color=MUTED, fontsize=14, ha="right", va="top")
-    right.set_xlim(0, 300)
-    right.set_ylim(0.22, 0.5)
-    right.set_xticks([0, 100, 200, 300])
-    right.set_xticklabels(["0", "100M", "200M", "300M"])
+    right.text(DI_TOKENS[-1], DI_RANDOM - 0.006, "Random", color=MUTED, fontsize=14, ha="right", va="top")
+
+    if annotate_recovery:
+        # Stella's annotation: how much fine-tuning it takes for a filtered model to reach the
+        # unfiltered model's starting point.
+        baseline_start = DI_BIOTHREAT["Baseline"][0]
+        strong = DI_BIOTHREAT["Strong Filter"]
+        cross = np.interp(baseline_start, strong, DI_TOKENS)          # first token count where Strong >= baseline start
+        right.axhline(baseline_start, color=TEXT, lw=1.6, ls=(0, (1.5, 3)), alpha=0.9)
+        right.plot([cross, cross], [DI_RANDOM, baseline_start], color=TEXT, lw=1.6, ls=(0, (1.5, 3)), alpha=0.9)
+        right.text(cross + 8, 0.335, "> 150M tokens of fine-tuning\nrestore capability to match\nthe unfiltered model",
+                   color=TEXT, fontsize=13.5, ha="left", va="top", linespacing=1.3)
+
+    right.set_xlim(0, 305)
+    right.set_ylim(0.22, 0.47)
+    right.set_xticks([0, 50, 100, 150, 200, 250, 300])
+    right.set_xticklabels(["0", "50M", "100M", "150M", "200M", "250M", "300M"])
     right.set_yticks([0.25, 0.3, 0.35, 0.4, 0.45])
     right.set_yticklabels(["25%", "30%", "35%", "40%", "45%"])
     right.set_xlabel("Adversarial Fine-Tuning Tokens", fontsize=16, labelpad=10)
