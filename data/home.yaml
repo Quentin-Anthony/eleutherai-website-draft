@@ -14,8 +14,8 @@ priorities:
     title: "Open Models and Tools"
     layout: "light"
     accent: "blue"
-    image: "images/research/homepage/open-models-pile-composition.png"
-    image_alt: "Treemap showing the composition of the Pile by data category and source"
+    image: "images/research/homepage/open-models.svg"
+    image_alt: "Three open layers: datasets, training and evaluation code, and models released with checkpoints and data order"
     text: |-
       Open research on large models requires more than released weights. It requires open data to train on, open code to train and evaluate with, and open models whose full development is public.
 
@@ -31,8 +31,8 @@ priorities:
     title: "Interpretability Over Time"
     layout: "lead"
     accent: "green"
-    image: "images/research/homepage/interpretability-over-time.webp"
-    image_alt: "A model's diffuse internal connections organizing into distinct mechanisms over the course of training"
+    image: "images/research/homepage/interpretability-over-time.svg"
+    image_alt: "A training loss curve with saved checkpoints along it, one magnified to show internal structure forming"
     text: |-
       Most interpretability research studies a finished model, frozen at the end of training. We study how model internals emerge, arguing that [a science of AI must study training dynamics](https://arxiv.org/abs/2606.06533) rather than treating models as static artifacts to be dissected after the fact.
 
@@ -46,8 +46,8 @@ priorities:
     title: "Open-Weight Safety"
     layout: "safety"
     accent: "violet"
-    image: "images/research/homepage/open-weight-safety.png"
-    image_alt: "Deep Ignorance results showing filtered models resisting adversarial fine-tuning without reduced general capability"
+    image: "images/research/homepage/open-weight-safety.svg"
+    image_alt: "Hazardous documents filtered out of pretraining data before training, producing a model whose safeguard holds against fine-tuning attacks"
     text: |-
       Open models need a safety science built for openness. We have championed open models since our founding, and we believe they can be safe without giving up the freedom to inspect, modify, and deploy them. That requires interventions in the training data, the training process, and the model itself: techniques that are technologically and philosophically compatible with the open source movement. EleutherAI is building the field of open-weight safety, defining its problems, developing new approaches, and creating the infrastructure researchers need to test them.
 
@@ -61,8 +61,8 @@ priorities:
     title: "Evaluation"
     layout: "compact"
     accent: "gold"
-    image: "images/research/homepage/evaluation.png"
-    image_alt: "Benchmark saturation levels across a broad collection of language-model benchmarks"
+    image: "images/research/homepage/evaluation.svg"
+    image_alt: "Schematic of benchmark saturation: older benchmarks flattening against a score ceiling while newer ones still separate models"
     text: |-
       We study what benchmarks measure, when they saturate, and how evaluations shape our picture of model capability.
     links:

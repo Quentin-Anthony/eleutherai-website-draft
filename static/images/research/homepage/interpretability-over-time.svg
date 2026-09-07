@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560" role="img" aria-labelledby="t">
+  <title id="t">A training loss curve with saved checkpoints along it, one checkpoint magnified to show the model's internal structure forming</title>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1b2430" stroke-width="1"/>
+    </pattern>
+    <clipPath id="lens"><circle cx="470" cy="238" r="86"/></clipPath>
+  </defs>
+  <rect width="800" height="560" fill="#10151d"/>
+  <rect width="800" height="560" fill="url(#grid)"/>
+  <g font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
+    <!-- axes -->
+    <path d="M90 460H740" stroke="#27313f" stroke-width="2"/>
+    <path d="M90 80V460" stroke="#27313f" stroke-width="2"/>
+    <text x="740" y="492" fill="#7f8997" font-size="15" text-anchor="end">training steps →</text>
+    <text x="72" y="92" fill="#7f8997" font-size="15" text-anchor="end">loss</text>
+    <!-- loss curve -->
+    <path d="M90 110 C150 250, 210 320, 300 356 S 520 402, 740 418" fill="none" stroke="#62d77a" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- checkpoints -->
+    <g fill="#10151d" stroke="#62d77a" stroke-width="2.5">
+      <circle cx="90" cy="110" r="6"/><circle cx="140" cy="228" r="6"/><circle cx="200" cy="304" r="6"/><circle cx="270" cy="346" r="6"/>
+      <circle cx="380" cy="374" r="6"/><circle cx="470" cy="388" r="6"/><circle cx="560" cy="400" r="6"/><circle cx="650" cy="410" r="6"/><circle cx="740" cy="418" r="6"/>
+    </g>
+    <text x="90" y="484" fill="#7f8997" font-size="14" text-anchor="middle">step 0</text>
+    <text x="470" y="484" fill="#7f8997" font-size="14" text-anchor="middle">checkpoint</text>
+    <!-- lens over one checkpoint -->
+    <path d="M470 388L470 324" stroke="#62d77a" stroke-width="2" stroke-dasharray="3 5"/>
+    <circle cx="470" cy="238" r="86" fill="#0b1018" stroke="#62d77a" stroke-width="2.5"/>
+    <g clip-path="url(#lens)">
+      <!-- diffuse connections becoming a structured circuit -->
+      <g stroke="#3a5b4a" stroke-width="1.2" fill="none" opacity=".8">
+        <path d="M400 200L430 260M410 250L470 190M440 300L500 210M420 220L510 280M460 300L520 240M390 240L450 170"/>
+      </g>
+      <g stroke="#62d77a" stroke-width="2.4" fill="none">
+        <path d="M418 238H452M488 238H522M452 238L470 206M452 238L470 270M488 238L470 206M488 238L470 270"/>
+      </g>
+      <g fill="#62d77a">
+        <circle cx="418" cy="238" r="7"/><circle cx="452" cy="238" r="7"/><circle cx="488" cy="238" r="7"/><circle cx="522" cy="238" r="7"/><circle cx="470" cy="206" r="7"/><circle cx="470" cy="270" r="7"/>
+      </g>
+    </g>
+    <text x="470" y="140" fill="#c4c9d1" font-size="15" text-anchor="middle">what the model has learned so far</text>
+  </g>
+</svg>

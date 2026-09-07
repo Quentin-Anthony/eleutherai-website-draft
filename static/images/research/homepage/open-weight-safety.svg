@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560" role="img" aria-labelledby="t">
+  <title id="t">Hazardous documents filtered out of pretraining data before training, producing a model whose safeguard holds up against fine-tuning attacks</title>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1b2430" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="560" fill="#10151d"/>
+  <rect width="800" height="560" fill="url(#grid)"/>
+  <g font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
+    <!-- incoming documents -->
+    <text x="60" y="112" fill="#c4c9d1" font-size="16" font-weight="700">Pretraining data</text>
+    <g>
+      <rect x="60" y="136" width="44" height="30" rx="4" fill="#ad8df2" opacity=".85"/>
+      <rect x="60" y="176" width="44" height="30" rx="4" fill="#ee7b79" opacity=".9"/>
+      <rect x="60" y="216" width="44" height="30" rx="4" fill="#ad8df2" opacity=".55"/>
+      <rect x="60" y="256" width="44" height="30" rx="4" fill="#ad8df2" opacity=".85"/>
+      <rect x="60" y="296" width="44" height="30" rx="4" fill="#ee7b79" opacity=".9"/>
+      <rect x="60" y="336" width="44" height="30" rx="4" fill="#ad8df2" opacity=".55"/>
+      <rect x="60" y="376" width="44" height="30" rx="4" fill="#ad8df2" opacity=".85"/>
+    </g>
+    <!-- flow into the filter -->
+    <g stroke="#7f8997" stroke-width="2" fill="none" stroke-linecap="round">
+      <path d="M116 151H196M116 231H196M116 271H196M116 351H196M116 391H196"/>
+      <path d="M116 191L196 191" stroke="#ee7b79"/><path d="M116 311L196 311" stroke="#ee7b79"/>
+    </g>
+    <!-- filter -->
+    <rect x="206" y="118" width="14" height="300" rx="7" fill="#0b1018" stroke="#ad8df2" stroke-width="2.5"/>
+    <g stroke="#ad8df2" stroke-width="2" opacity=".8"><path d="M209 140H217M209 170H217M209 200H217M209 230H217M209 260H217M209 290H217M209 320H217M209 350H217M209 380H217"/></g>
+    <text x="213" y="452" fill="#c4c9d1" font-size="16" font-weight="700" text-anchor="middle">Filter</text>
+    <!-- removed documents drop out -->
+    <g stroke="#ee7b79" stroke-width="2" fill="none" stroke-linecap="round">
+      <path d="M232 191C270 191 290 230 300 480"/><path d="M232 311C262 311 282 380 300 480"/>
+      <path d="M292 470l8 12 8-12"/>
+    </g>
+    <text x="300" y="512" fill="#ee7b79" font-size="14" text-anchor="middle">hazardous data removed</text>
+    <!-- kept documents into the model -->
+    <g stroke="#7f8997" stroke-width="2" fill="none"><path d="M232 151H330M232 231H330M232 271H330M232 351H330M232 391H330"/></g>
+    <!-- model -->
+    <rect x="340" y="118" width="220" height="300" rx="12" fill="#0b1018" stroke="#ad8df2" stroke-width="2.5"/>
+    <text x="450" y="160" fill="#f4f5f7" font-size="20" font-weight="700" text-anchor="middle">Open-weight model</text>
+    <g fill="#ad8df2">
+      <circle cx="400" cy="230" r="8"/><circle cx="450" cy="200" r="8"/><circle cx="500" cy="230" r="8"/>
+      <circle cx="400" cy="300" r="8"/><circle cx="450" cy="330" r="8"/><circle cx="500" cy="300" r="8"/><circle cx="450" cy="265" r="10"/>
+    </g>
+    <g stroke="#ad8df2" stroke-width="1.8" fill="none" opacity=".7">
+      <path d="M400 230L450 200L500 230M400 230L450 265L500 230M400 300L450 265L500 300M400 300L450 330L500 300M400 230L400 300M500 230L500 300"/>
+    </g>
+    <text x="450" y="392" fill="#7f8997" font-size="14" text-anchor="middle">never learned it</text>
+    <!-- adversarial fine-tuning attacks deflected by a shield -->
+    <path d="M598 130 A180 180 0 0 1 598 406" fill="none" stroke="#ad8df2" stroke-width="3.5" stroke-linecap="round"/>
+    <g stroke="#ee7b79" stroke-width="2.5" fill="none" stroke-linecap="round">
+      <path d="M740 190L660 232"/><path d="M672 220l-12 12 16 2"/>
+      <path d="M760 268L668 268"/><path d="M682 258l-14 10 14 10"/>
+      <path d="M740 346L660 304"/><path d="M672 316l-12-12 16-2"/>
+    </g>
+    <text x="700" y="110" fill="#c4c9d1" font-size="16" font-weight="700" text-anchor="middle">Adversarial fine-tuning</text>
+    <text x="700" y="392" fill="#7f8997" font-size="14" text-anchor="middle">nothing to recover</text>
+  </g>
+</svg>

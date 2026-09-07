@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560" role="img" aria-labelledby="t">
+  <title id="t">Schematic of benchmark saturation: scores on several benchmarks rising over time and flattening against a ceiling</title>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1b2430" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="560" fill="#10151d"/>
+  <rect width="800" height="560" fill="url(#grid)"/>
+  <g font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
+    <path d="M90 460H740" stroke="#27313f" stroke-width="2"/>
+    <path d="M90 80V460" stroke="#27313f" stroke-width="2"/>
+    <text x="740" y="492" fill="#7f8997" font-size="15" text-anchor="end">time since release →</text>
+    <text x="72" y="92" fill="#7f8997" font-size="15" text-anchor="end">score</text>
+    <!-- ceiling -->
+    <path d="M90 124H740" stroke="#d8b44a" stroke-width="2" stroke-dasharray="6 8" opacity=".9"/>
+    <text x="736" y="112" fill="#d8b44a" font-size="14" text-anchor="end">ceiling</text>
+    <!-- saturated benchmarks -->
+    <path d="M90 430 C150 420, 180 330, 230 220 S 320 130, 740 128" fill="none" stroke="#d8b44a" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M90 440 C200 436, 240 360, 300 260 S 420 140, 740 132" fill="none" stroke="#d8b44a" stroke-width="3" opacity=".7" stroke-linecap="round"/>
+    <path d="M90 446 C260 442, 330 370, 400 280 S 560 160, 740 140" fill="none" stroke="#d8b44a" stroke-width="2.5" opacity=".5" stroke-linecap="round"/>
+    <!-- still-discriminating benchmarks -->
+    <path d="M90 450 C330 448, 420 420, 520 360 S 700 270, 740 250" fill="none" stroke="#78b8ee" stroke-width="3" stroke-linecap="round"/>
+    <path d="M90 452 C400 450, 520 440, 620 400 S 720 350, 740 336" fill="none" stroke="#78b8ee" stroke-width="2.5" opacity=".6" stroke-linecap="round"/>
+    <g fill="#10151d" stroke="#d8b44a" stroke-width="2.5"><circle cx="740" cy="128" r="6"/><circle cx="740" cy="132" r="6"/><circle cx="740" cy="140" r="6"/></g>
+    <g fill="#10151d" stroke="#78b8ee" stroke-width="2.5"><circle cx="740" cy="250" r="6"/><circle cx="740" cy="336" r="6"/></g>
+    <!-- annotations -->
+    <text x="470" y="176" fill="#c4c9d1" font-size="15">saturated: no longer separates models</text>
+    <text x="440" y="424" fill="#78b8ee" font-size="15">still informative</text>
+    <!-- legend -->
+    <g transform="translate(110 150)">
+      <path d="M0 8H28" stroke="#d8b44a" stroke-width="3"/><text x="38" y="13" fill="#c4c9d1" font-size="14">older benchmarks</text>
+      <path d="M0 34H28" stroke="#78b8ee" stroke-width="3"/><text x="38" y="39" fill="#c4c9d1" font-size="14">newer benchmarks</text>
+    </g>
+  </g>
+</svg>
