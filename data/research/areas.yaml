@@ -13,7 +13,7 @@
 # Navigation groupings may overlap; they do not define exclusive research ownership.
 navigation:
   - title: "Models & data"
-    areas: ["open_models", "training_data", "multilingual", "ai4science"]
+    areas: ["open_models", "training_data", "multilingual", "multimodal", "ai4science"]
   - title: "Understanding models"
     areas: ["interpretability", "evaluation", "data_attribution"]
   - title: "Safety"
@@ -26,7 +26,7 @@ areas:
     featured: true
     team: "interpretability"
     accent: "green"
-    sheet_areas: ["Learning Dynamics"]
+    sheet_areas: ["Model Internals", "Learning Dynamics"]
     summary: "How model behavior and internal structure emerge over the course of training, and what shaped them."
     lede: "Most interpretability research studies a finished model. We study how capabilities, failure modes, and internal mechanisms develop during training, which aspects of the data and training process shape that trajectory, and what interventions would have changed the outcome."
     body:
@@ -319,6 +319,10 @@ areas:
     slug: "data-attribution"
     title: "Data Attribution"
     featured: false
+    team: "interpretability"
+    accent: "green"
+    sheet_areas: []
+    library_query: "attribution"
     summary: "Connecting model behavior to the training data that shaped it."
     lede: "Which training examples contribute to a model's behavior? We develop tools for investigating that connection and use attribution to study capabilities and guide interventions."
     body:

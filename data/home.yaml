@@ -65,7 +65,7 @@ priorities:
     links:
       - label: "Pythia"
         url: "https://arxiv.org/abs/2304.01373"
-      - label: "Don't Just fix it in Post"
+      - label: "Don't Just Fix It in Post"
         url: "https://arxiv.org/abs/2606.06533"
   - key: "open-weight-safety"
     title: "Open-Weight Safety"
@@ -92,7 +92,9 @@ priorities:
     image: "images/research/homepage/evaluation.svg"
     image_alt: "Schematic of benchmark saturation: older benchmarks flattening against a score ceiling while newer ones still separate models"
     text: |-
-      We study what benchmarks measure, when they saturate, and how evaluations shape our picture of model capability.
+      Evaluation is the infrastructure the rest of the field's claims rest on. We maintain the Language Model Evaluation Harness, the framework behind the Open LLM Leaderboard and the standard way to evaluate open models, and maintaining it has taught us how much small differences in prompting, scoring, and implementation change reported numbers.
+
+      We also study evaluation itself: when benchmarks saturate and stop separating models, how a benchmark's age skews cross-model comparisons, and how to report results so they can be compared across groups. Through the EvalEval Coalition, co-hosted with Hugging Face and the University of Edinburgh, we are rebuilding evaluation as shared open infrastructure.
     links:
       - label: "LM Evaluation Harness"
         url: "https://github.com/EleutherAI/lm-evaluation-harness"
