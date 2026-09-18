@@ -7,13 +7,13 @@ aliases:
   - /about.html
 ---
 
-## EleutherAI Today
+## EleutherAI
 
 EleutherAI is a non-profit research institute with 15 full- and part-time staff, who work alongside a dozen or so regular volunteers and external collaborators. Our current work falls into three groups, described in detail on the [research pages](/research/):
 
-- **Models and data.** We build the open infrastructure the field runs on: openly licensed training corpora such as the Common Pile, the GPT-NeoX training framework, and model suites like Pythia released with their checkpoints and data order.
-- **Understanding models.** We maintain the Language Model Evaluation Harness and study evaluation itself, and we study how model behavior and internal structure emerge over the course of training rather than only in the finished model.
-- **Safety.** We develop safeguards for open-weight models that survive fine-tuning and other white-box access, and we study behavioral failures such as deception, sycophancy, and evaluation awareness.
+- **[Models and data](/research/#models-data).** We build the open infrastructure the field runs on: openly licensed training corpora such as the Common Pile, the GPT-NeoX training framework, and model suites like Pythia released with their checkpoints and data order.
+- **[Understanding models](/research/#understanding-models).** We maintain the Language Model Evaluation Harness and study evaluation itself, and we study how model behavior and internal structure emerge over the course of training rather than only in the finished model.
+- **[Safety](/research/#safety).** We develop safeguards for open-weight models that survive fine-tuning and other white-box access, and we study behavioral failures such as deception, sycophancy, and evaluation awareness.
 
 We also run programs for the wider community: the Summer of Open AI Research ([SOAR](/soar/)), our annual mentored research program; the EvalEval Coalition, co-hosted with Hugging Face and the University of Edinburgh; and the Open-Weight Pretraining Safety Accelerator, with FAR.AI.
 
