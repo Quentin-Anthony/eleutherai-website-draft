@@ -9,11 +9,15 @@ aliases:
 
 ## EleutherAI
 
-Founded in July 2020 by Connor Leahy, Sid Black, and Leo Gao, EleutherAI has grown from a Discord server for talking about GPT-3 to a leading non-profit research institute focused on large-scale artificial intelligence research. Our work has historically focused on providing access to cutting-edge AI technologies by training and releasing models, and promoting open science norms in Natural Language Processing. As public access to large-scale pre-trained AI models has substantially improved, our focus has broadened to interpretability, evaluation, and the safety of open-weight models.
+EleutherAI is a non-profit research institute with 15 full- and part-time staff, who work alongside a dozen or so regular volunteers and external collaborators. Our current work falls into three groups, described in detail on the [research pages](/research/):
+
+- **[Models and data](/research/#models-data).** We build the open infrastructure the field runs on: openly licensed training corpora such as the Common Pile, the GPT-NeoX training framework, and model suites like Pythia released with their checkpoints and data order.
+- **[Understanding models](/research/#understanding-models).** We maintain the Language Model Evaluation Harness and study evaluation itself, and we study how model behavior and internal structure emerge over the course of training rather than only in the finished model.
+- **[Safety](/research/#safety).** We develop safeguards for open-weight models that survive fine-tuning and other white-box access, and we study behavioral failures such as deception, sycophancy, and evaluation awareness.
+
+We also run programs for the wider community: the Summer of Open AI Research ([SOAR](/soar/)), our annual mentored research program; the EvalEval Coalition, co-hosted with Hugging Face and the University of Edinburgh; and the Open-Weight Pretraining Safety Accelerator, with FAR.AI.
 
 EleutherAI operates primarily through [our public Discord server](https://discord.gg/eleutherai), where we discuss research in the field and coordinate our projects. We embrace an open and collaborative research model, and our Discord server does not strongly differentiate between employees, volunteers, and collaborators at other institutions. However, our community specifically caters to researchers and research-level discussion, and we ask that people interested in learning about AI research primarily observe.
-
-EleutherAI employs 15 full- and part-time staff members, who work alongside a dozen or so regular volunteers and external collaborators.
 
 ## Our Mission
 
@@ -27,9 +31,13 @@ We therefore seek to:
 - Ensure that the ability to study foundation models is not restricted to a handful of companies;
 - Educate people about the capabilities, limitations, and risks associated with these technologies.
 
-## Our Impact
+## Our History
 
-We created and maintained landmark open-source AI foundations, including GPT-J, GPT-NeoX, the Pythia suite, and The Pile. Our contributions have played key roles in community efforts like BLOOM, VQGAN-CLIP, Stable Diffusion, and OpenFold.
+EleutherAI was founded in July 2020 by Connor Leahy, Sid Black, and Leo Gao as a Discord server for people who wanted to replicate GPT-3 in the open. Its early years were defined by providing access to large models when almost none were public: [the Pile](https://arxiv.org/abs/2101.00027) at the end of 2020, GPT-Neo and GPT-J in 2021, and [GPT-NeoX-20B](https://arxiv.org/abs/2204.06745) in early 2022, for a time the largest open-source language model in the world. Community members also seeded or contributed to efforts that grew beyond EleutherAI, including BLOOM, VQGAN-CLIP, Stable Diffusion, and OpenFold.
+
+In early 2023 EleutherAI incorporated as a non-profit research institute. As public access to large pre-trained models improved, our focus broadened from training and releasing models to the questions those models raise: the [Pythia suite](https://arxiv.org/abs/2304.01373) (2023) made training itself a subject of study, the Evaluation Harness became the standard tool for measuring open models, and our research programs in interpretability, evaluation, and open-weight safety grew out of that work.
+
+## Our Impact
 
 Our models have been downloaded hundreds of millions of times, enabling cutting-edge research on interpretability, ethics, training dynamics, and more.
 
